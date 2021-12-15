@@ -39,9 +39,10 @@ function AuthContextProvider({children}) {
         localStorage.setItem('token', JWT);
         // decode de token zodat we de id(username) van de gebruiker hebben en data kunnen ophalen voor de context
         const decoded = jwt_decode(JWT);
+        console.log(decoded);
 
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
-        fetchUserData(decoded.payload.sub, JWT, `/profile`);
+        fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
         // link de gebruiker door naar de profielpagina
         // history.push('/profile')
     }
@@ -63,7 +64,7 @@ function AuthContextProvider({children}) {
 
         try {
             // haal gebruikersData op met de token en id(username) van de gebruiker
-            const {result} = await axios.get(`http://localhost:8080/loggedIn/${id}`, {
+            const {result} = await axios.get(`http://localhost:8080/users/${id}`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
