@@ -19,13 +19,16 @@ function Profile() {
 
             try {
                 const decoded = jwt_decode(token);
-                const result = await axios.get(`http://localhost:8080/loggedIn/admin`, {
+                const username = decoded.sub;
+                console.log(username);
+                const {result} = await axios.get(`http://localhost:8080/user/${username}`, {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
+                        Authorization: `Bearer ${token}`
                     },
-                    cancelToken: source.token,
+                    //cancelToken: source.token,
                 });
+                console.log(result);
                 setProfileData(result.data);
             } catch (e) {
                 console.error(e);
@@ -45,8 +48,8 @@ function Profile() {
             <h1>Profielpagina</h1>
             <section>
                 <h2>Gegevens</h2>
-                <p><strong>Gebruikersnaam:</strong> {profileData.username}</p>
-                <p><strong>Is user enabled:</strong> {profileData.enabled}</p>
+                <p><strong>Gebruikersnaam:</strong> {user.username}</p>
+                <p><strong>Is user enabled:</strong> {user.enabled}</p>
                 <p><strong>Authorities: </strong> {profileData.authorities}</p>
             </section>
 

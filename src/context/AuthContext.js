@@ -24,7 +24,7 @@ function AuthContextProvider({children}) {
             const decoded = jwt_decode(token);
             fetchUserData(decoded.sub, token);
         } else {
-            //als er geen token is doen we niks, en zetten nwe status op 'done'
+            //als er geen token is doen we niks, en zetten we status op 'done'
             toggleIsAuth({
                 isAuth: false,
                 user: null,
@@ -42,9 +42,9 @@ function AuthContextProvider({children}) {
         console.log(decoded);
 
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
-        fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
+        await fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
         // link de gebruiker door naar de profielpagina
-        // history.push('/profile')
+        history.push('/profile');
     }
 
     function logout() {
@@ -64,13 +64,16 @@ function AuthContextProvider({children}) {
 
         try {
             // haal gebruikersData op met de token en id(username) van de gebruiker
-            const {result} = await axios.get(`http://localhost:8080/users/${id}`, {
+            const result = await axios.get(`http://localhost:8080/user/${id}`, {
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `Bearer ${token}`
                 },
             });
             console.log(result)
+            //console.log(result.data.username)
+            //console.log(result.data.enabled)
+            //console.log(result.data.authorities)
 
                 // zet de gegevens in de state
             toggleIsAuth({

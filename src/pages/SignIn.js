@@ -34,6 +34,7 @@ function SignIn() {
             });
             //log het resultaat in de console
             console.log(result.data.jwt);
+            console.log(result);
 
             // geef de jwt token aan de login-functie van de context mee
 
