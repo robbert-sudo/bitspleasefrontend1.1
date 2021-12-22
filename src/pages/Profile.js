@@ -26,9 +26,9 @@ function Profile() {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
                     },
-                    //cancelToken: source.token,
+                    cancelToken: source.token,
                 });
-                console.log(result);
+                console.log({result});
                 setProfileData(result.data);
             } catch (e) {
                 console.error(e);
