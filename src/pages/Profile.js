@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 
 function Profile() {
     const [profileData, setProfileData] = useState({});
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         const source = axios.CancelToken.source();
@@ -21,19 +21,20 @@ function Profile() {
                 const decoded = jwt_decode(token);
                 const username = decoded.sub;
                 console.log(username);
-                const {result} = await axios.get(`http://localhost:8080/user/${username}`, {
+                const result = await axios.get(`http://localhost:8080/user/${username}`, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
                     },
                     cancelToken: source.token,
                 });
-                console.log({result});
+                console.log(result);
                 setProfileData(result.data);
             } catch (e) {
                 console.error(e);
             }
         }
+
         fetchProfileData();
 
         return function cleanup() {
