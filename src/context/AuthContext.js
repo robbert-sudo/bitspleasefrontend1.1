@@ -34,7 +34,7 @@ function AuthContextProvider({children}) {
     },[]);
 
 
-    async function login(JWT) {
+    function login(JWT) {
         //zet token in de local storage
         localStorage.setItem('token', JWT);
         // decode de token zodat we de id(username) van de gebruiker hebben en data kunnen ophalen voor de context
@@ -42,9 +42,9 @@ function AuthContextProvider({children}) {
         console.log(decoded);
 
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
-        await fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
+        fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
         // link de gebruiker door naar de profielpagina
-        history.push('/profile');
+        history.push("/profile");
     }
 
     function logout() {
@@ -71,9 +71,9 @@ function AuthContextProvider({children}) {
                 },
             });
             console.log(result)
-            //console.log(result.data.username)
-            //console.log(result.data.enabled)
-            //console.log(result.data.authorities)
+            console.log(result.data.username)
+            console.log(result.data.enabled)
+            console.log(result.data.authorities)
 
                 // zet de gegevens in de state
             toggleIsAuth({
@@ -103,14 +103,12 @@ function AuthContextProvider({children}) {
         }
     }
 
-
-
     const contextData = {
         isAuth: isAuth.isAuth,
         user: isAuth.user,
         login: login,
         logout: logout,
-    }
+    };
 
     return (
         <AuthContext.Provider value={contextData}>

@@ -8,7 +8,7 @@ function SignIn() {
     const [password, togglePassword] = useState("");
     const [error, toggleError] = useState(false);
 
-    const {login} = useContext(AuthContext);
+    const {login, user} = useContext(AuthContext);
     const source = axios.CancelToken.source();
 
 //mocht onze pagina ge-unmount worden voor we klaar zijn met data ophalen, aborten we het request

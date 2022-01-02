@@ -28,7 +28,7 @@ function Profile() {
                     },
                     cancelToken: source.token,
                 });
-                console.log({result});
+                console.log(result.enabled);
                 setProfileData(result.data);
             } catch (e) {
                 console.error(e);
@@ -41,6 +41,7 @@ function Profile() {
         }
     },[])
 
+    // fetchUserData();
 
 
     return (
