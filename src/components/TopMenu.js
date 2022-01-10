@@ -8,7 +8,7 @@ import SystemButton from "./SystemButton";
 function TopMenu() {
     const history = useHistory();
     const {isAuth, logout} = useContext(AuthContext);
-    console.log(isAuth);
+
 
     return (
 
