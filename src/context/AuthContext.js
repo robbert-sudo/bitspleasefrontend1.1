@@ -1,4 +1,4 @@
-import React, {createContext, useState, useEffect } from "react";
+import React, {createContext, useState, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import jwt_decode from 'jwt-decode';
 import axios from "axios";
@@ -31,19 +31,26 @@ function AuthContextProvider({children}) {
                 status: 'done',
             });
         }
-    },[]);
+    }, []);
 
 
-    async function login(JWT) {
+    function login(JWT) {
         //zet token in de local storage
         localStorage.setItem('token', JWT);
+
         // decode de token zodat we de id(username) van de gebruiker hebben en data kunnen ophalen voor de context
         const decoded = jwt_decode(JWT);
         console.log(decoded);
         console.log(decoded.sub);
 
+        // op basis van die informatie kunnen we de gebruikersgegevens ophalen via een GET-request
+        // ... gaan jullie zelf doen!
+
+
+        // gebruikersdata in de state plaatsen
+
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
-        await fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
+        fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
         // link de gebruiker door naar de profielpagina
         // history.push('/profile');
     }
@@ -76,22 +83,27 @@ function AuthContextProvider({children}) {
             console.log(result.data.enabled)
             console.log(result.data.authorities)
 
-                // zet de gegevens in de state
+            // zet de gegevens in de state
             toggleIsAuth({
-                ...isAuth,
+                // ...isAuth,
                 isAuth: true,
                 user: {
                     username: result.data.username,
                     enabled: result.data.enabled,
-                    authorities: result.data.authorities,
+                    authorities: result.data.authorities
                 },
                 status: 'done',
             });
+            console.log(isAuth);
+            console.log(isAuth.user);
+            // console.log(isAuth.user.username);
+            // console.log(isAuth.user.enabled);
+            // console.log(isAuth.user.authorities);
             // als er een redirect URL is meegegeven (bij het mount-effect doen we dit niet) linken we daar naartoe
             // als we de history.push in de login-functie zouden zetten, linken we door voor de gebruiker is opgehaald!
-           if (redirectUrl) {
-               history.push(redirectUrl);
-           }
+            if (redirectUrl) {
+                history.push(redirectUrl);
+            }
 
         } catch (e) {
             console.error(e);
@@ -104,14 +116,12 @@ function AuthContextProvider({children}) {
         }
     }
 
-
-
     const contextData = {
         isAuth: isAuth.isAuth,
         user: isAuth.user,
         login: login,
         logout: logout,
-    }
+    };
 
     return (
         <AuthContext.Provider value={contextData}>

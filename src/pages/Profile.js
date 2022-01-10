@@ -33,13 +33,15 @@ function Profile() {
                     },
                     cancelToken: source.token,
                 });
-                console.log(result);
+                    console.log(result);
                 setProfileData({
                     username: result.data.username,
                     enabled: result.data.enabled,
                     // authorities: result.data.authorities,
                     user_id: result.data.user_id,
                 });
+
+      
 
             } catch (e) {
                 console.error(e);
@@ -57,6 +59,7 @@ function Profile() {
     if(profileData.username !== null) {
         console.log(profileData);
     }
+
 
     return (
         <>
