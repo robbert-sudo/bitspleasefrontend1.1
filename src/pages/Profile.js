@@ -28,8 +28,16 @@ function Profile() {
                     },
                     cancelToken: source.token,
                 });
-                console.log(result.enabled);
-                setProfileData(result.data);
+
+
+                console.log(result);
+                setProfileData({
+                    username: result.data.username,
+                    enabled: result.data.enabled,
+                    // authorities: result.data.authorities,
+                    user_id: result.data.user_id,
+                });
+
             } catch (e) {
                 console.error(e);
             }
@@ -41,7 +49,7 @@ function Profile() {
         }
     },[])
 
-    // fetchUserData();
+
 
 
     return (

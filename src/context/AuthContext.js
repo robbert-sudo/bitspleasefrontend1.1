@@ -51,7 +51,7 @@ function AuthContextProvider({children}) {
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
         fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
         // link de gebruiker door naar de profielpagina
-        // history.push("/profile");
+        // history.push('/profile');
     }
 
     function logout() {
