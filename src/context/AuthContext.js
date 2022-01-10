@@ -41,6 +41,7 @@ function AuthContextProvider({children}) {
         // decode de token zodat we de id(username) van de gebruiker hebben en data kunnen ophalen voor de context
         const decoded = jwt_decode(JWT);
         console.log(decoded);
+        console.log(decoded.sub);
 
         // op basis van die informatie kunnen we de gebruikersgegevens ophalen via een GET-request
         // ... gaan jullie zelf doen!
