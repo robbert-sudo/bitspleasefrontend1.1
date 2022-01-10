@@ -24,7 +24,7 @@ function Home() {
             </section>
             <section>
                 <p>Als je ingelogd bent, bekijk dan de <Link to="/profile">Profielpagina</Link></p>
-                <p>Je kunt ook <Link to="/singin">inloggen</Link> of jezelf <Link to="/singup">registreren</Link> als je nog geen account hebt.</p>
+                <p>Je kunt ook <Link to="/signin">inloggen</Link> of jezelf <Link to="/singup">registreren</Link> als je nog geen account hebt.</p>
             </section>
         </>
     );

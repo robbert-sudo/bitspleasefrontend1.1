@@ -40,11 +40,12 @@ function AuthContextProvider({children}) {
         // decode de token zodat we de id(username) van de gebruiker hebben en data kunnen ophalen voor de context
         const decoded = jwt_decode(JWT);
         console.log(decoded);
+        console.log(decoded.sub);
 
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
         await fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
         // link de gebruiker door naar de profielpagina
-        history.push('/profile');
+        // history.push('/profile');
     }
 
     function logout() {
@@ -71,9 +72,9 @@ function AuthContextProvider({children}) {
                 },
             });
             console.log(result)
-            //console.log(result.data.username)
-            //console.log(result.data.enabled)
-            //console.log(result.data.authorities)
+            console.log(result.data.username)
+            console.log(result.data.enabled)
+            console.log(result.data.authorities)
 
                 // zet de gegevens in de state
             toggleIsAuth({
