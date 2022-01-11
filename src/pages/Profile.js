@@ -11,7 +11,7 @@ function Profile() {
         // authorities: null,
         user_id: null,
     });
-    const { user } = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     useEffect(() => {
         const source = axios.CancelToken.source();
@@ -33,7 +33,7 @@ function Profile() {
                     },
                     cancelToken: source.token,
                 });
-                    console.log(result);
+                console.log(result);
                 setProfileData({
                     username: result.data.username,
                     enabled: result.data.enabled,
@@ -41,7 +41,6 @@ function Profile() {
                     user_id: result.data.user_id,
                 });
 
-      
 
             } catch (e) {
                 console.error(e);
@@ -54,9 +53,9 @@ function Profile() {
         return function cleanup() {
             source.cancel();
         }
-    },[])
+    }, [])
 
-    if(profileData.username !== null) {
+    if (profileData.username !== null) {
         console.log(profileData);
     }
 
