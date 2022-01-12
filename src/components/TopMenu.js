@@ -31,11 +31,19 @@ function TopMenu() {
             </div>
 
             {isAuth ?
+                <div>
                 <button className="button"
                     type="button"
                     onClick={logout}>
                     Log uit
                 </button>
+                    <button className="button"
+                            type="button"
+                            onClick={() => history.push("/games")}
+                    >
+                        Ga naar games
+                    </button>
+                </div>
                 :
                 <div>
                     <button

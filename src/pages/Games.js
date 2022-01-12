@@ -37,7 +37,7 @@ function Games() {
     return (
         <>
             {
-            gameData.map(x => <li> {x.name} {x.system} </li> )
+            gameData.map(x => <h1> {x.id} {x.name} {x.system} </h1> )
             }
         </>
     );
