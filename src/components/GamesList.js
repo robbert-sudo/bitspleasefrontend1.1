@@ -7,7 +7,7 @@ function GamesList({game}) {
     return (
         <div className="gamelist"
         >
-        <Link to="/games">{game.id} {game.name} {game.system}</Link>
+        <Link to="/game">{game.id} {game.name} {game.system}</Link>
         </div>
     );
 
