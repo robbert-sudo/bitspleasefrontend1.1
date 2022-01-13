@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import GamesList from "../components/GamesList";
 
 function Games() {
-    const [gameData, setGameData] = useState([]);
-
+    const [gamesData, setGamesData] = useState([]);
+    const source = axios.CancelToken.source();
 
     useEffect(() => {
 
-        const source = axios.CancelToken.source();
+        // const source = axios.CancelToken.source();
 
-        async function fetchGameData() {
+        async function fetchGamesData() {
             const token = localStorage.getItem('token');
             try {
                 const result = await axios.get(`http://localhost:8080/games`, {
@@ -22,22 +23,22 @@ function Games() {
 
                 console.log(result.data.length);
                 console.log(result.data[0]);
-                setGameData(result.data);
-                console.log(gameData);
+                setGamesData(result.data);
+                // console.log(gameData);
 
             } catch (e) {
                 console.error(e);
             }
         }
 
-        fetchGameData();
+        fetchGamesData();
     }, [])
 
 
     return (
         <>
             {
-            gameData.map(x => <h1> {x.id} {x.name} {x.system} </h1> )
+                gamesData && gamesData.map(x => <GamesList game={x}/>)
             }
         </>
     );

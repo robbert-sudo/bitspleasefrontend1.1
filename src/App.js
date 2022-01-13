@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import './App.css';
 import {AuthContext} from "./context/AuthContext";
 import Games from "./pages/Games";
+import Game from "./pages/Game";
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
                     </Route>
                     <Route exact path="/games">
                         <Games/>
+                    </Route>
+                    <Route exact path="/game">
+                        <Game/>
                     </Route>
 
                 </Switch>

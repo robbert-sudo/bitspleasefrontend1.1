@@ -43,6 +43,7 @@ function SignIn() {
         } catch (e) {
             console.error(e);
             toggleError(true);
+            console.log(error);
         }
     }
 

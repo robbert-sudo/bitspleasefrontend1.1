@@ -4,7 +4,8 @@ function SystemButton({text}) {
 
     return (
         <button className="system-button"
-                type="button">
+                type="button"
+        >
             {text}
         </button>
     );
