@@ -65,9 +65,9 @@ function Profile() {
             <h1>Profielpagina</h1>
             <section>
                 <h2>Gegevens</h2>
-                <p><strong>Gebruikersnaam:</strong> {profileData.username}</p>
+                <p><strong>Gebruikersnaam:</strong> {profileData.username} {user.username}</p>
                 <p><strong>Is user enabled:</strong> {profileData.enabled}</p>
-                <p><strong>User_id: </strong> {profileData.user_id}</p>
+                <p><strong>User_id: </strong> {profileData.user_id} </p>
                 <p><strong>Authorities: </strong> {profileData.authorities}</p>
             </section>
 

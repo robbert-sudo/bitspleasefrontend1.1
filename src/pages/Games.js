@@ -38,7 +38,8 @@ function Games() {
     return (
         <>
             {
-                gamesData && gamesData.map(x => <GameSummary game={x}/>)
+                gamesData && gamesData.map((game) =>
+                    <GameSummary game={game}/>)
             }
         </>
     );
