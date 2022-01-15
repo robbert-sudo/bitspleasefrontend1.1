@@ -15,9 +15,11 @@ function SignUp() {
     const source = axios.CancelToken.source();
 
     useEffect(() => {
+        // const source = axios.CancelToken.source();
         return function cleanup() {
             source.cancel();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     async function handleRegister(e) {

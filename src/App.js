@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {Switch, Route, Redirect} from 'react-router';
+
 import TopMenu from './components/TopMenu';
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
@@ -8,6 +9,8 @@ import SignUp from "./pages/SignUp";
 import './App.css';
 import {AuthContext} from "./context/AuthContext";
 import Games from "./pages/Games";
+
+
 
 
 function App() {
@@ -33,7 +36,6 @@ function App() {
                     <Route exact path="/games">
                         <Games/>
                     </Route>
-
                 </Switch>
             </div>
         </>

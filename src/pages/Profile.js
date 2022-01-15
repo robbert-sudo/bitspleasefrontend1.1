@@ -3,12 +3,13 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import Authorities from "../components/Authorities";
 
 function Profile() {
     const [profileData, setProfileData] = useState({
         username: null,
         enabled: null,
-        // authorities: null,
+        authorities: [],
         user_id: null,
     });
     const {user} = useContext(AuthContext);
@@ -37,7 +38,7 @@ function Profile() {
                 setProfileData({
                     username: result.data.username,
                     enabled: result.data.enabled,
-                    // authorities: result.data.authorities,
+                    authorities: result.data.authorities,
                     user_id: result.data.user_id,
                 });
 
@@ -65,9 +66,13 @@ function Profile() {
             <h1>Profielpagina</h1>
             <section>
                 <h2>Gegevens</h2>
-                <p><strong>Gebruikersnaam:</strong> {profileData.username}</p>
+                <p><strong>Gebruikersnaam:</strong> {profileData.username} {user.username}</p>
                 <p><strong>Is user enabled:</strong> {profileData.enabled}</p>
-                <p><strong>User_id: </strong> {profileData.user_id}</p>
+                <p><strong>User_id: </strong> {profileData.user_id} </p>
+                <p><strong>Authorities: </strong> </p>
+                {
+                    profileData.authorities && profileData.authorities.map((authorityInfo) => <Authorities authorities={authorityInfo}/>)
+                }
             </section>
 
             <p>Terug naar de <Link to="/">Homepagina</Link></p>

@@ -17,6 +17,7 @@ function SignIn() {
         return function cleanup() {
             source.cancel();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -43,6 +44,7 @@ function SignIn() {
         } catch (e) {
             console.error(e);
             toggleError(true);
+            console.log(error);
         }
     }
 
