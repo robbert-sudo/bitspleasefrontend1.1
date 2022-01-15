@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import GamesList from "../components/GameSummary";
 import GameSummary from "../components/GameSummary";
 
 function Games() {

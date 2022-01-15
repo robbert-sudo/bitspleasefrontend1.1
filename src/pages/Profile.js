@@ -8,7 +8,7 @@ function Profile() {
     const [profileData, setProfileData] = useState({
         username: null,
         enabled: null,
-        // authorities: null,
+        authorities: [],
         user_id: null,
     });
     const {user} = useContext(AuthContext);
@@ -37,7 +37,7 @@ function Profile() {
                 setProfileData({
                     username: result.data.username,
                     enabled: result.data.enabled,
-                    // authorities: result.data.authorities,
+                    authorities: result.data.authorities.authority,
                     user_id: result.data.user_id,
                 });
 
@@ -68,6 +68,7 @@ function Profile() {
                 <p><strong>Gebruikersnaam:</strong> {profileData.username}</p>
                 <p><strong>Is user enabled:</strong> {profileData.enabled}</p>
                 <p><strong>User_id: </strong> {profileData.user_id}</p>
+                <p><strong>Authorities: </strong> {profileData.authorities}</p>
             </section>
 
             <p>Terug naar de <Link to="/">Homepagina</Link></p>
