@@ -37,6 +37,10 @@ function Games() {
 
     return (
         <>
+            <button
+                onClick={history.push("/upload")}
+
+            >Game uploaden</button>
             {
                 gamesData && gamesData.map((game) =>
                     <GameSummary game={game}/>)
