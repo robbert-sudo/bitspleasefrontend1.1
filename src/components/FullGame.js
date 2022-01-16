@@ -12,6 +12,7 @@ function FullGame({game}) {
             <h5>System: {game.system}</h5>
             <h5>Developer: {game.developer}</h5>
             <h5>Uploader id: {game.uploader_id}</h5>
+            <h5>prijs: {game.price}</h5>
             {game.image && <img src={game.image} alt="gamepicture" />}
             {/*<img src={encodedBase64}/>*/}
         </div>

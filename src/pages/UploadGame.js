@@ -5,9 +5,10 @@ import {useHistory} from "react-router-dom";
 
 function UploadGame() {
     //state voor het formulier
-    const [gameName, setGameName] = useState("");
+    const [gameName, setGameName] = useState(null);
     const [system, toggleSystem] = useState("");
     const [developer, setDeveloper] = useState("");
+    const [price, setPrice] = useState();
     const [postImage, setPostImage] = useState({
        image: "",
     });
@@ -31,12 +32,14 @@ function UploadGame() {
         console.log(postImage);
         console.log(postImage.image);
 
+        if (gameName !== null) {
         try {
             await axios.post('http://localhost:8080/games', {
                 "name": gameName,
                 "system": system,
                 "developer": developer,
                 "uploader_id": 1,
+                "price": price,
                 "image": postImage.image,
             },{
                 cancelToken: source.token,
@@ -44,6 +47,9 @@ function UploadGame() {
             history.push("games");
         } catch (e) {
             console.error(e);
+        }
+    } else {
+        console.log("naam is een verplicht veld!");
         }
     }
 
@@ -94,6 +100,14 @@ function UploadGame() {
                     name="developer"
                     onChange={(e) => setDeveloper(e.target.value)}
                     placeholder="developer"
+                />
+                <input
+                    type="number"
+                    name="price"
+                    step="0.01"
+                    min="0"
+                    onChange={(e)=> setPrice(e.target.value)}
+                    placeholder="prijs"
                 />
 
 
