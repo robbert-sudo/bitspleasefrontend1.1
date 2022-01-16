@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp";
 import './App.css';
 import {AuthContext} from "./context/AuthContext";
 import Games from "./pages/Games";
+import UploadGame from "./pages/UploadGame";
 
 
 
@@ -35,6 +36,9 @@ function App() {
                     </Route>
                     <Route exact path="/games">
                         <Games/>
+                    </Route>
+                    <Route exact path="/uploadgame">
+                        <UploadGame/>
                     </Route>
                 </Switch>
             </div>
