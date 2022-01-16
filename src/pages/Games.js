@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import GameSummary from "../components/GameSummary";
+import {useHistory} from "react-router-dom";
+
 
 function Games() {
+    const history = useHistory();
     const [gamesData, setGamesData] = useState([]);
     const source = axios.CancelToken.source();
 
@@ -35,16 +38,21 @@ function Games() {
     }, [])
 
 
+    const mapGameData = gamesData && gamesData.map((game) =>
+    <GameSummary game={game} /> )
+
     return (
         <>
-            <button
-                onClick={history.push("/upload")}
-
-            >Game uploaden</button>
-            {
-                gamesData && gamesData.map((game) =>
-                    <GameSummary game={game}/>)
-            }
+            <button className="button"
+                    type="button"
+                    onClick={() => history.push("/uploadgame")}
+            >
+                Game uploaden</button>
+            {mapGameData}
+            {/*{*/}
+            {/*    gamesData && gamesData.map((game) =>*/}
+            {/*        <GameSummary game={game}/>)*/}
+            {/*}*/}
         </>
     );
 }
