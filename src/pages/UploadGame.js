@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
-
+import {AuthContext} from "../context/AuthContext";
 
 function UploadGame() {
     //state voor het formulier
     const [gameName, setGameName] = useState(null);
     const [system, toggleSystem] = useState("");
     const [developer, setDeveloper] = useState("");
+    const [uploaderId, setUploaderId] = useState(null);
     const [price, setPrice] = useState();
     const [postImage, setPostImage] = useState({
        image: "",
@@ -15,6 +16,7 @@ function UploadGame() {
 
     //state voor functionaliteit
     const history = useHistory()
+    const {user} = useContext(AuthContext);
     const source = axios.CancelToken.source();
 
     useEffect(() => {
@@ -33,12 +35,15 @@ function UploadGame() {
         console.log(postImage.image);
 
         if (gameName !== null) {
+            // setUploaderId(user.user_id);
+            console.log(user.user_id);
+            // console.log(uploaderId);
         try {
             await axios.post('http://localhost:8080/games', {
                 "name": gameName,
                 "system": system,
                 "developer": developer,
-                "uploader_id": 1,
+                "uploader_id": user.user_id,
                 "price": price,
                 "image": postImage.image,
             },{
@@ -76,6 +81,8 @@ function UploadGame() {
         setPostImage({...postImage, "image": base64});
         console.log(postImage);
     };
+
+
 
     return (
         <>

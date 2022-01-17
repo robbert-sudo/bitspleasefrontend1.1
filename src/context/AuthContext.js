@@ -88,6 +88,7 @@ function AuthContextProvider({children}) {
                 // ...isAuth,
                 isAuth: true,
                 user: {
+                    user_id: result.data.user_id,
                     username: result.data.username,
                     enabled: result.data.enabled,
                     authorities: result.data.authorities
