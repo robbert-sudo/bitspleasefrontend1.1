@@ -25,33 +25,31 @@ function GameSummary({game}) {
 
     return (
         <>
-            {!fullGame ? <>
-                    <button
-                        onClick={fanOut}>
-                        <div className="gamelist"
-                        >
-                            <div className="empty"></div>
-                            <div className="imagecontainer">
-                                {game.image && <img className="gamepic" src={game.image} alt="gamepicture"/>}
-                            </div>
-                            {/*<FullGame game={game}/>*/}
-                            {/*<h2>{game.name} </h2>*/}
-                            <div className="gamestats">
-                                <h2>{game.name}</h2>
-                                <h3>{game.system}</h3>
-                            </div>
-                            <div className="price">
-                                <h1>&euro;{game.price}</h1>
-                            </div>
+            {!fullGame ?
+
+                    <div className="gamelist"
+                         onClick={fanOut}
+                    >
+                        <div className="empty"></div>
+                        <div className="imagecontainer">
+                            {game.image && <img className="gamepic" src={game.image} alt="gamepicture"/>}
                         </div>
-                    </button>
-                </>
+                        {/*<FullGame game={game}/>*/}
+                        {/*<h2>{game.name} </h2>*/}
+                        <div className="gamestats">
+                            <h2>{game.name}</h2>
+                            <h3>{game.system}</h3>
+                        </div>
+                        <div className="price">
+                            <h1>&euro;{game.price}</h1>
+                        </div>
+                    </div>
                 :
-                <button
+                <div
                     onClick={fanIn}
                 >
                     <FullGame game={game}/>
-                </button>
+                </div>
             }
         </>
     )
