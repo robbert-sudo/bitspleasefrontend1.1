@@ -10,6 +10,7 @@ import './App.css';
 import {AuthContext} from "./context/AuthContext";
 import Games from "./pages/Games";
 import UploadGame from "./pages/UploadGame";
+import FullGame from "./components/FullGame";
 
 
 

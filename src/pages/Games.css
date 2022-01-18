@@ -1,0 +1,20 @@
+.bars {
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+
+.searchbar {
+    height: 30px;
+    width: 700px;
+    flex: 2;
+    margin: 5px;
+}
+
+.searchbutton {
+    flex: 1;
+}
+
+.uploadbutton {
+    flex: 1;
+}

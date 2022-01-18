@@ -8,7 +8,6 @@ function UploadGame() {
     const [gameName, setGameName] = useState(null);
     const [system, toggleSystem] = useState("");
     const [developer, setDeveloper] = useState("");
-    const [uploaderId, setUploaderId] = useState(null);
     const [price, setPrice] = useState();
     const [postImage, setPostImage] = useState({
        image: "",
@@ -35,9 +34,7 @@ function UploadGame() {
         console.log(postImage.image);
 
         if (gameName !== null) {
-            // setUploaderId(user.user_id);
             console.log(user.user_id);
-            // console.log(uploaderId);
         try {
             await axios.post('http://localhost:8080/games', {
                 "name": gameName,
