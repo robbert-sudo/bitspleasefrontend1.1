@@ -10,22 +10,24 @@ function GameSummary({game}) {
     const [gameId, toggleGameId] = useState(game.id);
     const [fullGame, toggleFullGame] = useState(false);
 
-    function goToFullGame() {
+    function fanOut() {
         toggleFullGame(true);
         console.log(gameId);
         console.log(game.id);
         toggleGameId(game.id);
         console.log(gameId);
         console.log(fullGame);
-
     }
 
+    function fanIn() {
+        toggleFullGame(false);
+    }
 
     return (
         <>
             {!fullGame ? <>
                     <button
-                        onClick={goToFullGame}>
+                        onClick={fanOut}>
                         <div className="gamelist"
                         >
                             <div className="empty"></div>
@@ -44,8 +46,12 @@ function GameSummary({game}) {
                         </div>
                     </button>
                 </>
-                : <FullGame game={game}/>
-
+                :
+                <button
+                    onClick={fanIn}
+                >
+                    <FullGame game={game}/>
+                </button>
             }
         </>
     )
