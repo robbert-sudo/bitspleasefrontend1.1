@@ -4,6 +4,7 @@
     background-color: orange;
     margin: 25px;
     outline-color: black;
+    height: 200px;
 }
 
 .empty {
@@ -30,4 +31,13 @@
 .price {
     width: 25%;
     background-color: red;
+}
+
+.buybutton {
+
+    background-color: olive;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }

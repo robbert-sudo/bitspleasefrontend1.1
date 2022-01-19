@@ -1,0 +1,26 @@
+.fullgame {
+    display: flex;
+}
+
+
+.fullgamepic {
+    height: 300px;
+    width: 400px;
+}
+
+.gameinfo {
+    flex: 25%;
+    align-content:flex-start;
+    background-color: #61dafb;
+}
+
+.sellerinfo {
+    flex:25%;
+    background-color: green;
+}
+
+
+
+.im {
+    flex: 25%;
+}

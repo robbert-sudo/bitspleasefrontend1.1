@@ -39,7 +39,7 @@ function TopMenu() {
                 </button>
                     <button className="button"
                             type="button"
-                            onClick={() => history.push("/games")}
+                            onClick={() => history.push("/gameslandingpage")}
                     >
                         Ga naar games
                     </button>

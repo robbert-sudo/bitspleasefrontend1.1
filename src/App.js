@@ -10,7 +10,9 @@ import './App.css';
 import {AuthContext} from "./context/AuthContext";
 import Games from "./pages/Games";
 import UploadGame from "./pages/UploadGame";
-import FullGame from "./components/FullGame";
+import CheckOut from "./pages/CheckOut";
+import GamesLandingPage from "./pages/GamesLandingPage";
+import GamesByName from "./pages/GamesByName";
 
 
 
@@ -40,6 +42,15 @@ function App() {
                     </Route>
                     <Route exact path="/uploadgame">
                         <UploadGame/>
+                    </Route>
+                    <Route exact path="/checkout">
+                        <CheckOut/>
+                    </Route>
+                    <Route exact path="/gameslandingpage">
+                        <GamesLandingPage/>
+                    </Route>
+                    <Route exact path="/gamesbyname">
+                        <GamesByName/>
                     </Route>
                 </Switch>
             </div>

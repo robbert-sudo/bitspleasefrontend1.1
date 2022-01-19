@@ -7,7 +7,7 @@ import FullGame from "../components/FullGame";
 
 function Games() {
     const history = useHistory();
-    const [searchName, toggleSearchName] = useState("");
+
     const [gamesData, setGamesData] = useState([]);
     const source = axios.CancelToken.source();
 
@@ -50,24 +50,24 @@ function Games() {
 
     return (
         <>
-            <div className="bars">
-                <input className="searchbar"
-                       type="text"
-                       onChange={(e) => toggleSearchName(e.target.value)}
-                />
-                <button className="searchbutton"
-                        type="button"
-                        onClick={searchGame}>
-                    nu zoeken
-                </button>
+            {/*<div className="bars">*/}
+            {/*    <input className="searchbar"*/}
+            {/*           type="text"*/}
+            {/*           onChange={(e) => toggleSearchName(e.target.value)}*/}
+            {/*    />*/}
+            {/*    <button className="searchbutton"*/}
+            {/*            type="button"*/}
+            {/*            onClick={searchGame}>*/}
+            {/*        nu zoeken*/}
+            {/*    </button>*/}
 
-                <button className="uploadbutton"
-                        type="button"
-                        onClick={() => history.push("/uploadgame")}
-                >
-                    Game uploaden
-                </button>
-            </div>
+            {/*    <button className="uploadbutton"*/}
+            {/*            type="button"*/}
+            {/*            onClick={() => history.push("/uploadgame")}*/}
+            {/*    >*/}
+            {/*        Game uploaden*/}
+            {/*    </button>*/}
+            {/*</div>*/}
             {mapGameData}
         </>
     );

@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import './GameSummary.css'
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import FullGame from "./FullGame";
+import CheckOut from "../pages/CheckOut";
 
 
 function GameSummary({game}) {
@@ -21,6 +22,12 @@ function GameSummary({game}) {
 
     function fanIn() {
         toggleFullGame(false);
+    }
+
+
+
+    function goToBuy() {
+        history.push("/checkout");
     }
 
     return (
@@ -45,15 +52,28 @@ function GameSummary({game}) {
                         </div>
                     </div>
                 :
+                <>
                 <div
                     onClick={fanIn}
                 >
                     <FullGame game={game}/>
                 </div>
+                    <button
+                        className="buybutton"
+                        type="button"
+                        onClick={goToBuy}
+                    >
+                        Nu kopen
+                    </button>
+                   {/*<div className="buybutton"*/}
+                   {/*        onClick={buyGame(game)}*/}
+                   {/*>*/}
+                   {/*    Nu kopen*/}
+                   {/*</div>*/}
+                </>
             }
         </>
-    )
-        ;
+    );
 }
 
 export default GameSummary;

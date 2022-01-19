@@ -41,6 +41,7 @@ function UploadGame() {
                 "system": system,
                 "developer": developer,
                 "uploader_id": user.user_id,
+                "uploader_name": user.username,
                 "price": price,
                 "image": postImage.image,
             },{
