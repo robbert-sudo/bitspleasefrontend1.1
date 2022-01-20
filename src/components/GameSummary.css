@@ -1,0 +1,43 @@
+.gamelist {
+    display: flex;
+    flex-direction: row;
+    background-color: orange;
+    margin: 25px;
+    outline-color: black;
+    height: 200px;
+}
+
+.empty {
+    width: 20%;
+    background-color: ghostwhite;
+}
+
+.imagecontainer {
+    width: 25%;
+    height: 250px;
+}
+
+.gamepic {
+    height: 200px;
+    align-self: center;
+}
+
+.gamestats {
+    width: 25%;
+    background-color: green;
+
+}
+
+.price {
+    width: 25%;
+    background-color: red;
+}
+
+.buybutton {
+
+    background-color: olive;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}

@@ -12,7 +12,7 @@ function Profile() {
         authorities: [],
         user_id: null,
     });
-    const {user} = useContext(AuthContext);
+    // const {user} = useContext(AuthContext);
 
     useEffect(() => {
         const source = axios.CancelToken.source();
@@ -69,13 +69,11 @@ function Profile() {
             <section>
                 <h2>Gegevens</h2>
                 <p><strong>Gebruikersnaam:</strong> {profileData.username} </p>
-                <p><strong>Is user enabled:</strong> {profileData.enabled}</p>
                 <p><strong>User_id: </strong> {profileData.user_id} </p>
                 <p><strong>Authorities: </strong> </p>
                 {authorityList}
-                {/*{*/}
-                {/*    profileData.authorities && profileData.authorities.map((authorityInfo) => <Authorities authorities={authorityInfo}/>)*/}
-                {/*}*/}
+
+
             </section>
 
             <p>Terug naar de <Link to="/">Homepagina</Link></p>

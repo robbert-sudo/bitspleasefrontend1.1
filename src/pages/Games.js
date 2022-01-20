@@ -2,12 +2,15 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import GameSummary from "../components/GameSummary";
 import {useHistory} from "react-router-dom";
-
+import "./Games.css";
+import FullGame from "../components/FullGame";
 
 function Games() {
     const history = useHistory();
+
     const [gamesData, setGamesData] = useState([]);
     const source = axios.CancelToken.source();
+
 
     useEffect(() => {
 
@@ -38,21 +41,34 @@ function Games() {
     }, [])
 
 
+    function searchGame() {
+        return null;
+    }
+
     const mapGameData = gamesData && gamesData.map((game) =>
-    <GameSummary game={game} /> )
+        <GameSummary game={game}/>)
 
     return (
         <>
-            <button className="button"
-                    type="button"
-                    onClick={() => history.push("/uploadgame")}
-            >
-                Game uploaden</button>
+            {/*<div className="bars">*/}
+            {/*    <input className="searchbar"*/}
+            {/*           type="text"*/}
+            {/*           onChange={(e) => toggleSearchName(e.target.value)}*/}
+            {/*    />*/}
+            {/*    <button className="searchbutton"*/}
+            {/*            type="button"*/}
+            {/*            onClick={searchGame}>*/}
+            {/*        nu zoeken*/}
+            {/*    </button>*/}
+
+            {/*    <button className="uploadbutton"*/}
+            {/*            type="button"*/}
+            {/*            onClick={() => history.push("/uploadgame")}*/}
+            {/*    >*/}
+            {/*        Game uploaden*/}
+            {/*    </button>*/}
+            {/*</div>*/}
             {mapGameData}
-            {/*{*/}
-            {/*    gamesData && gamesData.map((game) =>*/}
-            {/*        <GameSummary game={game}/>)*/}
-            {/*}*/}
         </>
     );
 }
