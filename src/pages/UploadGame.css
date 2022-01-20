@@ -1,0 +1,13 @@
+.gameuploaden {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.namefield {
+    flex:1;
+}
+
+.gamename {
+    flex: 1;
+}
