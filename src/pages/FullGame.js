@@ -29,16 +29,42 @@ function FullGame() {
 
                 setGameData(result.data);
                 console.log(result.data);
-                console.log(gameData);
+
+            } catch (e) {
+                console.error(e);
+            }
+
+        }
+
+        fetchGameDataById();
+
+    },[])
+
+
+
+    useEffect(()=> {
+
+        async function fetchUploaderRating(gameData) {
+            const token = localStorage.getItem('token');
+            try {
+                const average = await axios.get(`http://localhost:8080/sellerratings/getaverage/${gameData.uploader_id}`, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                    },
+                    cancelToken: source.token,
+                });
+
+                toggleUserAverage(average.data);
+                console.log(average.data);
+
 
             } catch (e) {
                 console.error(e);
             }
         }
-
-        fetchGameDataById();
-    },[])
-
+        fetchUploaderRating(gameData);
+    },[gameData])
 
 
 
@@ -65,7 +91,7 @@ function FullGame() {
                 <h5>Uploader: {gameData.uploader_name}</h5>
                 <h1>&euro; {gameData.price}</h1>
                 <h6>gemiddelde rating van deze gebruiker</h6>
-                <h2>{}</h2>
+                <h2>{userAverage}</h2>
                 <button className="votebutton" >stem op deze gebruiker</button>
             </div>
         </div> }
