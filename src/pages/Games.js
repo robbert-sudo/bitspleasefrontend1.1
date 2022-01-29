@@ -3,7 +3,7 @@ import axios from "axios";
 import GameSummary from "../components/GameSummary";
 import {useHistory} from "react-router-dom";
 import "./Games.css";
-import FullGame from "../components/FullGame";
+
 
 function Games() {
     const history = useHistory();

@@ -10,8 +10,6 @@ function GamesByName() {
     const source = axios.CancelToken.source();
 
 
-
-
     async function fetchGameByNameContain(e) {
         e.preventDefault();
         const token = localStorage.getItem('token');
@@ -24,6 +22,8 @@ function GamesByName() {
                 cancelToken: source.token,
             });
             setGamesData(result.data);
+            // console.log(gamesData);
+            console.log(result.data);
 
         } catch (e) {
             console.error(e);
@@ -31,22 +31,20 @@ function GamesByName() {
     }
 
 
-
-
     return (
         <>
             <div className="bars">
                 <form
                     onSubmit={fetchGameByNameContain}>
-                <input className="searchbar"
-                       type="text"
-                       onChange={(e) => toggleSearchName(e.target.value)}
-                       placeholder="zoek game op naam"
-                />
-                <button className="searchbutton"
-                        type="submit">
-                    nu zoeken
-                </button>
+                    <input className="searchbar"
+                           type="text"
+                           onChange={(e) => toggleSearchName(e.target.value)}
+                           placeholder="zoek game op naam"
+                    />
+                    <button className="searchbutton"
+                            type="submit">
+                        nu zoeken
+                    </button>
                 </form>
             </div>
             {gamesData && gamesData.map((gameByName) => <GameSummary game={gameByName}/>)}
