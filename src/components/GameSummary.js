@@ -9,11 +9,6 @@ function GameSummary({game}) {
 
     const history = useHistory();
     const [gameId, toggleGameId] = useState(game.id);
-    console.log(game);
-    console.log(game.id);
-    console.log(gameId);
-
-
 
     function goToFullGame(gameId) {
         history.push(`/fullgamepage/${game.id}`);
