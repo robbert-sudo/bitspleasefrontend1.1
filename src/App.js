@@ -13,6 +13,7 @@ import UploadGame from "./pages/UploadGame";
 import CheckOut from "./pages/CheckOut";
 import GamesLandingPage from "./pages/GamesLandingPage";
 import GamesByName from "./pages/GamesByName";
+import FullGame from "./pages/FullGame";
 
 
 
@@ -51,6 +52,9 @@ function App() {
                     </Route>
                     <Route exact path="/gamesbyname">
                         <GamesByName/>
+                    </Route>
+                    <Route path="/fullgamepage/:gameId">
+                        <FullGame/>
                     </Route>
                 </Switch>
             </div>
