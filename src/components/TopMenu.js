@@ -27,8 +27,7 @@ function TopMenu() {
 
     useEffect(() => {
         adminCheck();
-    },[ logout]);
-
+    });
 
 
 
