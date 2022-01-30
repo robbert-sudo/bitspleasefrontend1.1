@@ -15,7 +15,6 @@ function TopMenu() {
     function adminCheck() {
         if (user) {
             for (let i = 0; i < user.authorities.length; i++) {
-                console.log(user.authorities[i].authority);
                 if (user.authorities && user.authorities[i].authority === 'ROLE_ADMIN') {
                     toggleAdmini(true);
                 }
@@ -28,7 +27,7 @@ function TopMenu() {
 
     useEffect(() => {
         adminCheck();
-    },[ {logout}]);
+    },[ logout]);
 
 
 
