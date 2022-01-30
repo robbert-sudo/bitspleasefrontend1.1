@@ -15,6 +15,7 @@ import GamesLandingPage from "./pages/GamesLandingPage";
 import GamesByName from "./pages/GamesByName";
 import FullGame from "./pages/FullGame";
 import AdminPage from "./pages/AdminPage";
+import RatingPage from "./pages/RatingPage";
 
 
 
@@ -59,6 +60,9 @@ function App() {
                     </Route>
                     <Route path="/adminpage">
                         <AdminPage/>
+                    </Route>
+                    <Route path="/rating/:uploaderId">
+                        <RatingPage/>
                     </Route>
                 </Switch>
             </div>

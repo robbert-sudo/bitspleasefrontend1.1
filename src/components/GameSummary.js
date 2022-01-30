@@ -5,7 +5,7 @@ import {useHistory} from "react-router-dom";
 // import CheckOut from "../pages/CheckOut";
 
 
-function GameSummary({game}) {
+function GameSummary({game}, key) {
 
     const history = useHistory();
 
@@ -19,6 +19,7 @@ function GameSummary({game}) {
 
             <div className="gamelist"
                  onClick={goToFullGame}
+                 key={key}
             >
                 <div className="empty"></div>
                 <div className="imagecontainer">
