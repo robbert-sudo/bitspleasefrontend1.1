@@ -42,8 +42,8 @@ function Games() {
 
 
 
-    const mapGameData = gamesData && gamesData.map((gameProp) =>
-        <GameSummary game={gameProp}/>)
+    const mapGameData = gamesData && gamesData.map((gameProp, pos) =>
+        <GameSummary game={gameProp} key={pos}/>)
 
     return (
         <>
