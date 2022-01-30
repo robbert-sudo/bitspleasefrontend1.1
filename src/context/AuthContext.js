@@ -33,7 +33,7 @@ function AuthContextProvider({children}) {
             });
 
         }
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 
     function login(JWT) {
