@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import Authorities from "../components/Authorities";
+
 
 function Profile() {
     const [profileData, setProfileData] = useState({
@@ -56,15 +56,22 @@ function Profile() {
         }
     }, [])
 
-    if (profileData.username !== null) {
-        console.log(profileData);
-    }
 
 
-    const authorityList = profileData.authorities && profileData.authorities.map((authorityInfo) => <Authorities authorities={authorityInfo}/> )
+    const authorityList = profileData.authorities && profileData.authorities.map((item, pos)=>
+    {
+        return (
+            <div key={pos}>
+                <h1>{item.authority}</h1>
+            </div>
+        );
+    })
+
+
 
     return (
         <>
+            <div>
             <h1>Profielpagina</h1>
             <section>
                 <h2>Gegevens</h2>
@@ -72,11 +79,9 @@ function Profile() {
                 <p><strong>User_id: </strong> {profileData.user_id} </p>
                 <p><strong>Authorities: </strong> </p>
                 {authorityList}
-
-
             </section>
-
             <p>Terug naar de <Link to="/">Homepagina</Link></p>
+            </div>
         </>
     );
 }

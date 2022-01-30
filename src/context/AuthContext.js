@@ -10,7 +10,6 @@ function AuthContextProvider({children}) {
         isAuth: false,
         user: null,
         status: 'pending',
-        // admin: false,
     });
 
     const history = useHistory();
@@ -31,7 +30,6 @@ function AuthContextProvider({children}) {
                 isAuth: false,
                 user: null,
                 status: 'done',
-                admin: false,
             });
 
         }
@@ -55,11 +53,11 @@ function AuthContextProvider({children}) {
 
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
         fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
-        // adminCheck();
+
 
         // link de gebruiker door naar de profielpagina
         // history.push('/profile');
-        // adminCheck();
+
     }
 
     function logout() {
@@ -68,41 +66,11 @@ function AuthContextProvider({children}) {
             isAuth: false,
             user: null,
             status: 'done',
-            admin: false,
         });
 
         console.log("Gebruiker is uitgelogd.");
         history.push("/");
     }
-
-
-    // function adminCheck() {
-    //     try {
-    //         for (let i = 0; i < isAuth.user.authorities; i++) {
-    //             if (isAuth.user.authorities && isAuth.user.authorities[i].authority === 'ROLE_ADMIN') {
-    //                 toggleIsAuth({
-    //                     ...isAuth,
-    //                     admin: true,
-    //                 })
-    //             }
-    //         }} catch (e) {
-    //         console.error(e);
-    //     }
-    // }
-
-
-    // function adminCheck() {
-    //     if (isAuth.user) {
-    //         for (let i = 0; i < isAuth.user.authorities.length; i++) {
-    //             if (isAuth.user.authorities[i].authority === 'ROLE_ADMIN') {
-    //                 toggleIsAuth({
-    //                     ...isAuth,
-    //                     admin: true,
-    //                 });
-    //             }
-    //         }
-    //     }
-    // }
 
 
     // omdat fetchUserData in login- en mounting effect wordt gebruikt, is hij hier gedeclareert
@@ -116,7 +84,6 @@ function AuthContextProvider({children}) {
                     Authorization: `Bearer ${token}`
                 },
             });
-            // console.log(result)
             console.log(result.data.username)
             console.log(result.data.authorities)
 
@@ -134,20 +101,7 @@ function AuthContextProvider({children}) {
             });
 
 
-            // for (let i = 0; i < result.data.authorities; i++) {
-            //     if (result.data.authorities[i].authority === "ROLE_ADMIN") {
-            //         toggleIsAuth({
-            //             ...isAuth,
-            //             admin: true,
-            //         })
-            //     }
-            // }
 
-
-            // console.log(isAuth.user);
-            // console.log(isAuth.user.username);
-            // console.log(isAuth.user.enabled);
-            // console.log(isAuth.user.authorities);
             // als er een redirect URL is meegegeven (bij het mount-effect doen we dit niet) linken we daar naartoe
             // als we de history.push in de login-functie zouden zetten, linken we door voor de gebruiker is opgehaald!
             if (redirectUrl) {
@@ -171,7 +125,6 @@ function AuthContextProvider({children}) {
         user: isAuth.user,
         login: login,
         logout: logout,
-        // admin: isAuth.admin,
 
     };
 
