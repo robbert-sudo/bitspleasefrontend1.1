@@ -1,16 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import './GameSummary.css'
 import {useHistory} from "react-router-dom";
-import FullGame from "../pages/FullGame";
-import CheckOut from "../pages/CheckOut";
+
+// import CheckOut from "../pages/CheckOut";
 
 
 function GameSummary({game}) {
 
     const history = useHistory();
-    const [gameId, toggleGameId] = useState(game.id);
 
-    function goToFullGame(gameId) {
+    function goToFullGame() {
         history.push(`/fullgamepage/${game.id}`);
     }
 

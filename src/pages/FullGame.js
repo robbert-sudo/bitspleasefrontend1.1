@@ -10,10 +10,12 @@ function FullGame() {
     const { gameId } = useParams();
     const [gameData, setGameData] = useState();
     const [userAverage, toggleUserAverage] = useState();
-    const source = axios.CancelToken.source();
+    // const source = axios.CancelToken.source();
 
 
     useEffect(()=> {
+
+        const source = axios.CancelToken.source();
 
 
         async function fetchGameDataById() {
@@ -38,11 +40,13 @@ function FullGame() {
 
         fetchGameDataById();
 
-    },[])
+    },[gameId])
 
 
 
     useEffect(()=> {
+
+        const source = axios.CancelToken.source();
 
         async function fetchUploaderRating(gameData) {
             const token = localStorage.getItem('token');

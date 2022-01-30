@@ -1,6 +1,6 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {AuthContext} from "../context/AuthContext";
+
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Authorities from "../components/Authorities";
@@ -12,7 +12,7 @@ function Profile() {
         authorities: [],
         user_id: null,
     });
-    // const {user} = useContext(AuthContext);
+
 
     useEffect(() => {
         const source = axios.CancelToken.source();

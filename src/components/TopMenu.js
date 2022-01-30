@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import logo from '../assets/logo_bits_please.svg'
 import {useHistory, Link} from 'react-router-dom';
 import {AuthContext} from '../context/AuthContext';
@@ -7,7 +7,30 @@ import SystemButton from "./SystemButton";
 
 function TopMenu() {
     const history = useHistory();
-    const {isAuth, logout} = useContext(AuthContext);
+    const {isAuth, logout, user} = useContext(AuthContext);
+    const [admini, toggleAdmini] = useState(false);
+
+
+
+    function adminCheck() {
+        if (user) {
+            for (let i = 0; i < user.authorities.length; i++) {
+                console.log(user.authorities[i].authority);
+                if (user.authorities && user.authorities[i].authority === 'ROLE_ADMIN') {
+                    toggleAdmini(true);
+                }
+            }
+        } else {
+            toggleAdmini(false);
+        }
+        }
+
+
+    useEffect(() => {
+        adminCheck();
+    },[ {logout}]);
+
+
 
 
     return (
@@ -30,13 +53,27 @@ function TopMenu() {
 
             </div>
 
+
+            {admini ?
+                <>
+                <button className="button"
+                        type="button"
+                        onClick={() => history.push("/adminpage")}
+                >
+                    admin page
+                </button>
+                </>
+                : <>
+
+                </>}
             {isAuth ?
                 <div>
-                <button className="button"
-                    type="button"
-                    onClick={logout}>
-                    Log uit
-                </button>
+                    <button className="button"
+                            type="button"
+                            onClick={logout}>
+                        Log uit
+                    </button>
+
                     <button className="button"
                             type="button"
                             onClick={() => history.push("/gameslandingpage")}
@@ -49,7 +86,7 @@ function TopMenu() {
                     <button
                         type="button"
                         onClick={() => history.push("/signin")}
-                        >
+                    >
                         Log in
                     </button>
                     <button

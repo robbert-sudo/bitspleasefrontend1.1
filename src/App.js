@@ -14,6 +14,7 @@ import CheckOut from "./pages/CheckOut";
 import GamesLandingPage from "./pages/GamesLandingPage";
 import GamesByName from "./pages/GamesByName";
 import FullGame from "./pages/FullGame";
+import AdminPage from "./pages/AdminPage";
 
 
 
@@ -55,6 +56,9 @@ function App() {
                     </Route>
                     <Route path="/fullgamepage/:gameId">
                         <FullGame/>
+                    </Route>
+                    <Route path="/adminpage">
+                        <AdminPage/>
                     </Route>
                 </Switch>
             </div>

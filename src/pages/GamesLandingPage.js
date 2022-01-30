@@ -1,18 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import {useHistory} from "react-router-dom";
 import './GamesLandingPage.css';
 
 function GamesLandingPage() {
+
     const history = useHistory()
-    const [searchName, toggleSearchName] = useState("");
-    const [searchSystem, toggleSearchSystem] = useState("");
 
-
-
-
-    function searchBySystem() {
-        return null;
-    }
 
     return (
         <>
