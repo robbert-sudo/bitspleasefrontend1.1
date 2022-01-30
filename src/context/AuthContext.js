@@ -10,6 +10,7 @@ function AuthContextProvider({children}) {
         isAuth: false,
         user: null,
         status: 'pending',
+        // admin: false,
     });
 
     const history = useHistory();
@@ -23,13 +24,16 @@ function AuthContextProvider({children}) {
         if (token) {
             const decoded = jwt_decode(token);
             fetchUserData(decoded.sub, token);
+            // adminCheck();
         } else {
             //als er geen token is doen we niks, en zetten we status op 'done'
             toggleIsAuth({
                 isAuth: false,
                 user: null,
                 status: 'done',
+                admin: false,
             });
+
         }
     }, []);
 
@@ -51,8 +55,11 @@ function AuthContextProvider({children}) {
 
         //geef de ID, token en redirect-link mee aan de fetchData functie decoded.sub=username
         fetchUserData(decoded.sub, JWT, `/profile`); //decoded.payload.sub payload ertussenuit gehaald.
+        // adminCheck();
+
         // link de gebruiker door naar de profielpagina
         // history.push('/profile');
+        // adminCheck();
     }
 
     function logout() {
@@ -61,11 +68,42 @@ function AuthContextProvider({children}) {
             isAuth: false,
             user: null,
             status: 'done',
+            admin: false,
         });
 
         console.log("Gebruiker is uitgelogd.");
         history.push("/");
     }
+
+
+    // function adminCheck() {
+    //     try {
+    //         for (let i = 0; i < isAuth.user.authorities; i++) {
+    //             if (isAuth.user.authorities && isAuth.user.authorities[i].authority === 'ROLE_ADMIN') {
+    //                 toggleIsAuth({
+    //                     ...isAuth,
+    //                     admin: true,
+    //                 })
+    //             }
+    //         }} catch (e) {
+    //         console.error(e);
+    //     }
+    // }
+
+
+    // function adminCheck() {
+    //     if (isAuth.user) {
+    //         for (let i = 0; i < isAuth.user.authorities.length; i++) {
+    //             if (isAuth.user.authorities[i].authority === 'ROLE_ADMIN') {
+    //                 toggleIsAuth({
+    //                     ...isAuth,
+    //                     admin: true,
+    //                 });
+    //             }
+    //         }
+    //     }
+    // }
+
 
     // omdat fetchUserData in login- en mounting effect wordt gebruikt, is hij hier gedeclareert
     async function fetchUserData(id, token, redirectUrl) {
@@ -78,14 +116,13 @@ function AuthContextProvider({children}) {
                     Authorization: `Bearer ${token}`
                 },
             });
-            console.log(result)
+            // console.log(result)
             console.log(result.data.username)
-            console.log(result.data.enabled)
             console.log(result.data.authorities)
 
             // zet de gegevens in de state
             toggleIsAuth({
-                // ...isAuth,
+                ...isAuth,
                 isAuth: true,
                 user: {
                     user_id: result.data.user_id,
@@ -95,8 +132,19 @@ function AuthContextProvider({children}) {
                 },
                 status: 'done',
             });
-            console.log(isAuth);
-            console.log(isAuth.user);
+
+
+            // for (let i = 0; i < result.data.authorities; i++) {
+            //     if (result.data.authorities[i].authority === "ROLE_ADMIN") {
+            //         toggleIsAuth({
+            //             ...isAuth,
+            //             admin: true,
+            //         })
+            //     }
+            // }
+
+
+            // console.log(isAuth.user);
             // console.log(isAuth.user.username);
             // console.log(isAuth.user.enabled);
             // console.log(isAuth.user.authorities);
@@ -113,6 +161,7 @@ function AuthContextProvider({children}) {
                 isAuth: false,
                 user: null,
                 status: 'done',
+
             });
         }
     }
@@ -122,6 +171,8 @@ function AuthContextProvider({children}) {
         user: isAuth.user,
         login: login,
         logout: logout,
+        // admin: isAuth.admin,
+
     };
 
     return (
