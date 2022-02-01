@@ -66,12 +66,12 @@ function RatingPage() {
                 :
                 <div>
                     <h1>Rating</h1>
-                    {toBeRated && <h1>username: {toBeRated.username}</h1>}
+                    {toBeRated && <h1>username: {toBeRated.ratedUsername}</h1>}
                     <h1>{uploaderId}</h1>
                     {toBeRated && <form className="rating"
                                         onSubmit={handleRatingSubmit}
                     >
-                        <h2>geef {toBeRated.username} een cijfer</h2>
+                        <h2>geef {toBeRated.ratedUsername} een cijfer</h2>
                         <select name="ratingcijfer"
                                 defaultValue="0"
                                 onChange={(e) => toggleRating(e.target.value)}
