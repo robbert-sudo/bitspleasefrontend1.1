@@ -32,7 +32,7 @@ function GameSummary({game}, key) {
                     <h3>{game.system}</h3>
                 </div>
                 <div className="price">
-                    <h1>&euro;{game.price}</h1>
+                    <h1>&euro;{(game.price).toFixed(2)}</h1>
                 </div>
             </div>
 
