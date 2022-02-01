@@ -59,7 +59,8 @@ function FullGame() {
                         cancelToken: source.token,
                     });
 
-                    toggleUserAverage(average.data);
+                    const averageWithTwoDecimals = (average.data).toFixed(1);
+                    toggleUserAverage(averageWithTwoDecimals);
                     console.log(average.data);
 
 
@@ -96,7 +97,7 @@ function FullGame() {
                 </div>
                 <div className="sellerinfo">
                     <h5>Uploader: {gameData.uploader_name}</h5>
-                    <h1>&euro; {gameData.price}</h1>
+                    <h1>&euro; {(gameData.price).toFixed(2)}</h1>
                     <h6>gemiddelde rating van deze gebruiker</h6>
                     <h2>{userAverage}/10</h2>
                     <button className="votebutton"

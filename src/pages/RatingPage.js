@@ -46,8 +46,8 @@ function RatingPage() {
 
         try {
             await axios.post('http://localhost:8080/sellerratings', {
-                "ratedUserId": 2,    //hardcoded
-                "rating": 10,               //hardcoded
+                "ratedUserId": uploaderId,    //hardcoded
+                "rating": rating,               //hardcoded
             }, {
                 cancelToken: source.token,
             });
