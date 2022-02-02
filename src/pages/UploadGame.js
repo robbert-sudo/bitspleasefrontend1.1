@@ -95,25 +95,34 @@ function UploadGame() {
                 <p>Invoervelden</p>
 
                 <div className="namefield">
-                <label htmlFor="gamename">Game name(verplicht)</label>
+                <label htmlFor="gamename">Game name</label>
                 <input
                     id="gamename"
                     type="text"
                     name="gamename"
                     onChange={(e) => setGameName(e.target.value)}
-                    placeholder="GameName(verplicht)"
+                    placeholder="(verplicht)"
                 />
                 </div>
 
                 <div className="systemfield">
                     <label htmlFor="systemname">systeem</label>
-                <input
-                    id="systemname"
-                    type="text"
-                    name="system"
-                    onChange={(e) => toggleSystem(e.target.value)}
-                    placeholder="system"
-                />
+                    <select name="system"
+                           onChange={(e)=> toggleSystem(e.target.value)}
+                            >
+                        <option value="gameboy">gameboy</option>
+                        <option value="gameboy color">gameboy color</option>
+                        <option value="gameboy advance">gameboy advance</option>
+                        <option value="nes">nes</option>
+                        <option value="snes">snes</option>
+                        <option value="nintendo 64">nintendo 64</option>
+                        <option value="gamecube">gamecube</option>
+                        <option value="game gear">game gear</option>
+                        <option value="master system">master system</option>
+                        <option value="megadrive">megadrive</option>
+                        <option value="dreamcast">dreamcast</option>
+                        <option value="psx">psx</option>
+                    </select>
                 </div>
 
                 <div className="developerfield">
@@ -136,7 +145,7 @@ function UploadGame() {
                     step="0.01"
                     min="0"
                     onChange={(e)=> setPrice(e.target.value)}
-                    placeholder="prijs(verplicht)"
+                    placeholder="(verplicht)"
                 />
                 </div>
 
