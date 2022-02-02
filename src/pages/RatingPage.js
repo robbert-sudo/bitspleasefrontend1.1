@@ -4,7 +4,6 @@ import axios from "axios";
 
 function RatingPage() {
 
-    const history = useHistory()
     const {uploaderId} = useParams();
     const [toBeRated, toggleToBeRated] = useState(null);
     const [rating, toggleRating] = useState();
@@ -46,8 +45,8 @@ function RatingPage() {
 
         try {
             await axios.post('http://localhost:8080/sellerratings', {
-                "ratedUserId": uploaderId,    //hardcoded
-                "rating": rating,               //hardcoded
+                "ratedUserId": uploaderId,
+                "rating": rating,
             }, {
                 cancelToken: source.token,
             });
