@@ -95,7 +95,7 @@ function UploadGame() {
                 <p>Invoervelden</p>
 
                 <div className="namefield">
-                <label for="gamename">Game name(verplicht)</label>
+                <label htmlFor="gamename">Game name(verplicht)</label>
                 <input
                     id="gamename"
                     type="text"
@@ -106,7 +106,7 @@ function UploadGame() {
                 </div>
 
                 <div className="systemfield">
-                    <label for="systemname">systeem</label>
+                    <label htmlFor="systemname">systeem</label>
                 <input
                     id="systemname"
                     type="text"
@@ -117,7 +117,7 @@ function UploadGame() {
                 </div>
 
                 <div className="developerfield">
-                    <label for="developername">developer</label>
+                    <label htmlFor="developername">developer</label>
                 <input
                     id="developername"
                     type="text"
@@ -128,7 +128,7 @@ function UploadGame() {
                 </div>
 
                 <div className="pricefield">
-                    <label for="price">prijs</label>
+                    <label htmlFor="price">prijs</label>
                 <input
                     id="price"
                     type="number"
@@ -142,7 +142,7 @@ function UploadGame() {
 
 
 
-                <label for="Image">foto upload</label>
+                <label htmlFor="Image">foto upload</label>
                 <input
                     id="Image"
                     type="file"
