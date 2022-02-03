@@ -16,8 +16,7 @@ import GamesByName from "./pages/GamesByName";
 import FullGame from "./pages/FullGame";
 import AdminPage from "./pages/AdminPage";
 import RatingPage from "./pages/RatingPage";
-
-
+import AdminPageUsers from "./pages/AdminPageUsers";
 
 
 function App() {
@@ -58,8 +57,11 @@ function App() {
                     <Route path="/fullgamepage/:gameId">
                         <FullGame/>
                     </Route>
-                    <Route path="/adminpage">
+                    <Route exact path="/adminpage">
                         <AdminPage/>
+                    </Route>
+                    <Route exact path="/adminpage/users">
+                        <AdminPageUsers/>
                     </Route>
                     <Route path="/rating/:uploaderId">
                         <RatingPage/>
