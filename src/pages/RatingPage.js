@@ -72,7 +72,7 @@ function RatingPage() {
                     >
                         <h2>geef {toBeRated.ratedUsername} een cijfer</h2>
                         <select name="ratingcijfer"
-                                defaultValue="0"
+                                defaultValue="8"
                                 onChange={(e) => toggleRating(e.target.value)}
                         >
                             <option value="1">1</option>
