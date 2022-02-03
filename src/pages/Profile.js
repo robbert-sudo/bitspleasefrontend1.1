@@ -1,11 +1,12 @@
 import React, { useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 
 function Profile() {
+    const history = useHistory();
     const [profileData, setProfileData] = useState({
         username: null,
         enabled: null,
@@ -82,6 +83,13 @@ function Profile() {
             </section>
             <p>Terug naar de <Link to="/">Homepagina</Link></p>
             </div>
+
+            <button className="button"
+                    type="button"
+                    onClick={() => history.push("deleteprofile")}
+                    >
+                Mijn profiel verwijderen
+            </button>
         </>
     );
 }

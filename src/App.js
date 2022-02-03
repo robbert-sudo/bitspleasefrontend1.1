@@ -17,6 +17,7 @@ import FullGame from "./pages/FullGame";
 import AdminPage from "./pages/AdminPage";
 import RatingPage from "./pages/RatingPage";
 import AdminPageUsers from "./pages/AdminPageUsers";
+import EditProfile from "./pages/EditProfile";
 
 
 function App() {
@@ -65,6 +66,9 @@ function App() {
                     </Route>
                     <Route path="/rating/:uploaderId">
                         <RatingPage/>
+                    </Route>
+                    <Route exact path="/deleteprofile">
+                        <EditProfile/>
                     </Route>
                 </Switch>
             </div>
