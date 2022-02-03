@@ -11,7 +11,6 @@ function TopMenu() {
     const [admini, toggleAdmini] = useState(false);
 
 
-
     function adminCheck() {
         if (user) {
             for (let i = 0; i < user.authorities.length; i++) {
@@ -22,13 +21,12 @@ function TopMenu() {
         } else {
             toggleAdmini(false);
         }
-        }
+    }
 
 
     useEffect(() => {
         adminCheck();
     });
-
 
 
     return (
@@ -54,12 +52,12 @@ function TopMenu() {
 
             {admini ?
                 <>
-                <button className="button"
-                        type="button"
-                        onClick={() => history.push("/adminpage")}
-                >
-                    admin page
-                </button>
+                    <button className="button"
+                            type="button"
+                            onClick={() => history.push("/adminpage")}
+                    >
+                        admin page
+                    </button>
                 </>
                 : <>
 
@@ -77,6 +75,12 @@ function TopMenu() {
                             onClick={() => history.push("/gameslandingpage")}
                     >
                         Ga naar games
+                    </button>
+                    <button className="button"
+                            type="button"
+                            onClick={() => history.push("/profile")}
+                    >
+                        mijn profiel
                     </button>
                 </div>
                 :
