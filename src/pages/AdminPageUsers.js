@@ -33,11 +33,11 @@ function AdminPageUsers() {
 
     return (
         <>
-            {userData && userData.map((userData)=>
-                <>
+            {userData && userData.map((userData, pos)=>
+                <div key={pos}>
                     <h3>user_id: {userData.user_id}</h3>
             <h5>username: {userData.username}</h5>
-                </>
+                </div>
             )}
 
         </>
