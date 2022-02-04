@@ -15,14 +15,11 @@ function AdminPage() {
             >
                 Bekijk alle gebruikers
             </button>
-            <button>
+            <button
+                onClick={()=> history.push("/adminpage/deletedusers")}
+            >
                 Verwijder gebruiker
             </button>
-            <button>
-                maak gebruiker administrator
-            </button>
-
-
         </>
     );
 }
