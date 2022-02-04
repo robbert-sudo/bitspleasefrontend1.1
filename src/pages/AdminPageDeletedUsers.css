@@ -1,0 +1,10 @@
+.deletedusers {
+    background-color: red;
+}
+
+.deletebutton {
+    background-color: orange;
+    position: relative;
+    left: 550px;
+    top: -75px;
+}

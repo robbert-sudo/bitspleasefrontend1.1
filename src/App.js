@@ -18,6 +18,7 @@ import AdminPage from "./pages/AdminPage";
 import RatingPage from "./pages/RatingPage";
 import AdminPageUsers from "./pages/AdminPageUsers";
 import EditProfile from "./pages/EditProfile";
+import AdminPageDeletedUsers from "./pages/AdminPageDeletedUsers";
 
 
 function App() {
@@ -63,6 +64,9 @@ function App() {
                     </Route>
                     <Route exact path="/adminpage/users">
                         <AdminPageUsers/>
+                    </Route>
+                    <Route exact path="/adminpage/deletedusers">
+                        <AdminPageDeletedUsers/>
                     </Route>
                     <Route path="/rating/:uploaderId">
                         <RatingPage/>
