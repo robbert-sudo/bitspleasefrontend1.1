@@ -20,6 +20,7 @@ function UploadGame() {
     const source = axios.CancelToken.source();
 
     useEffect(() => {
+        const source = axios.CancelToken.source();
         return function cleanup() {
             source.cancel();
         }

@@ -22,7 +22,7 @@ function RatingPage() {
             try {
                 const result = await axios.get(`http://localhost:8080/user/id/${uploaderId}`, {
                     headers: {
-                        "Content_Type": "application/json",
+                        "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
                     },
                     cancelToken: source.token,
@@ -36,18 +36,23 @@ function RatingPage() {
         }
 
         fetchName();
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
     async function handleRatingSubmit(e) {
         e.preventDefault();
+        const token = localStorage.getItem('token');
 
         try {
             await axios.post('http://localhost:8080/sellerratings', {
                 "ratedUserId": uploaderId,
                 "rating": rating,
             }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
                 cancelToken: source.token,
             });
             toggleVoted(true);

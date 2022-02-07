@@ -7,13 +7,13 @@ function AdminPageDeletedUsers() {
     const [userData, toggleUserData] = useState([]);
     const [deleted, toggleDeleted] = useState(false);
 
-    const source = axios.CancelToken.source();
 
     useEffect(()=> {
 
 
         async function fetchDeletedUsers() {
             toggleDeleted(false);
+            const source = axios.CancelToken.source();
             const token = localStorage.getItem('token');
             try {
                 const result = await axios.get('http://localhost:8080/admin/deletedusers', {
@@ -37,7 +37,7 @@ function AdminPageDeletedUsers() {
 
 
     async function handleDelete(username) {
-        // const source = axios.CancelToken.source();
+        const source = axios.CancelToken.source();
         const token = localStorage.getItem('token');
         try {
             await axios.delete(`http://localhost:8080/admin/delete/${username}`, {
