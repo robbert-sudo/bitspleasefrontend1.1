@@ -1,17 +1,15 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import axios from "axios";
 import {AuthContext} from "../context/AuthContext";
 
 
 function EditProfile() {
-    const [deleted, toggleDeleted] = useState(false);
-    const {user, logout, isAuth} = useContext(AuthContext);
+    const {user, logout} = useContext(AuthContext);
 
 
     async function handleDisable() {
         const source = axios.CancelToken.source();
         const token = localStorage.getItem('token');
-        toggleDeleted(true);
         logout();
 
         try {

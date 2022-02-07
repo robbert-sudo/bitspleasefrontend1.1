@@ -70,6 +70,7 @@ function Profile() {
         return function cleanup() {
             source.cancel();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
