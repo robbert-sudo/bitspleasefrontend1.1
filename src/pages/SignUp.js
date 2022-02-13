@@ -44,6 +44,7 @@ function SignUp() {
         toggleLoading(false);
     }
 
+    console.log(error);
 
     return (
         <>
