@@ -2,6 +2,8 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 
 
+// elke role kan naar deze url (adminpage)
+
 function AdminPage() {
     const history = useHistory();
 
